@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COTESS — El Club de la Pizza</title>
+  <meta name="description" content="No es una pizza. Es una membresía. COTESS — El Club de la Pizza." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Bricolage+Grotesque:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets (orden importa: variables → base → components → sections) -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <div class="logo">COTESS <em>Pizza</em></div>
+    <div class="nav-links">
+      <a href="#club">El Club</a>
+      <a href="#momentos">Momentos</a>
+      <a href="#coleccion">Colección</a>
+      <a href="#familia">Familia</a>
+      <a href="order.html">Ordenar</a>
+    </div>
+    <a href="order.html" class="nav-cta">Arma tu Cotess</a>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-marquee-top">
+      <div class="marquee-track">
+        <span>Miembros desde 2025</span>
+        <span>Solo por invitación</span>
+        <span>24/7 · 24/7 · 24/7</span>
+        <span>El Club de la Pizza</span>
+        <span>Original · Caribeña · Nuestra</span>
+      </div>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="hero-line-1">EL CLUB</span>
+      <span class="hero-line-2">DE LA</span>
+      <span class="hero-line-3">Pizza</span>
+    </h1>
+
+    <div class="hero-meta">
+      <div>
+        <p class="hero-tagline">
+          No es una pizza.<br />
+          <em>Es una membresía.</em>
+        </p>
+        <p class="hero-tagline-desc">
+          COTESS no es una pizzería cualquiera. Es un club. Un parche. Un lugar
+          al que se entra solo con invitación y del que nunca querrás salir.
+          Bienvenido al original.
+        </p>
+      </div>
+
+      <div class="hero-stamp" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <defs>
+            <path id="circle" d="M 100,100 m -76,0 a 76,76 0 1,1 152,0 a 76,76 0 1,1 -152,0" />
+          </defs>
+          <circle cx="100" cy="100" r="90" fill="none" stroke="#C8102E" stroke-width="2" />
+          <circle cx="100" cy="100" r="82" fill="none" stroke="#C8102E" stroke-width="1" stroke-dasharray="2 6" />
+          <text font-family="Big Shoulders Display" font-weight="900" font-size="15" fill="#C8102E" letter-spacing="3">
+            <textPath href="#circle" startOffset="0%">MIEMBRO FUNDADOR · SINCE 2025 · ORIGINAL ·  </textPath>
+          </text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DIVIDER MARQUEE ===== -->
+  <div class="divider-marquee">
+    <div class="marquee-track">
+      <span>El Club de la Pizza</span>
+      <span>No es comida, es cultura</span>
+      <span>Original · Caribeña · Nuestra</span>
+    </div>
+  </div>
+
+  <!-- ===== MANIFIESTO / 4 REGLAS ===== -->
+  <section class="section reveal" id="club">
+    <div class="section-label">01 · El Manifiesto</div>
+    <h2 class="section-title">Las 4 reglas<br /><em>del club.</em></h2>
+
+    <div class="rules">
+      <div class="rule">
+        <div class="rule-num">01</div>
+        <h3 class="rule-title">Solo por invitación</h3>
+        <p class="rule-text">
+          Solo se permite el ingreso de nuevos miembros que sean recomendados
+          por miembros actuales del club. Aquí no entra cualquiera.
+        </p>
+      </div>
+      <div class="rule">
+        <div class="rule-num">02</div>
+        <h3 class="rule-title">Carta y código único</h3>
+        <p class="rule-text">
+          Se notifica a través de una carta al nuevo miembro, en la cual tendrá
+          la invitación y llevará un código único para su ingreso.
+        </p>
+      </div>
+      <div class="rule">
+        <div class="rule-num">03</div>
+        <h3 class="rule-title">Ceremonia de ingreso</h3>
+        <p class="rule-text">
+          Se realiza una ceremonia para iniciar al nuevo miembro del club.
+          Porque entrar al Club de la Pizza no es un trámite: es un momento.
+        </p>
+      </div>
+      <div class="rule">
+        <div class="rule-num">04</div>
+        <h3 class="rule-title">Beneficios para siempre</h3>
+        <p class="rule-text">
+          Cada miembro tendrá beneficios especiales y prioridad en cualquier
+          franquicia. Una vez Cotess, siempre Cotess.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MOMENTOS ===== -->
+  <section class="section reveal" id="momentos">
+    <div class="section-label">02 · Los Momentos</div>
+    <h2 class="section-title">¿Cuándo es un<br /><em>momento</em> COTESS?</h2>
+    <p class="momentos-intro">
+      Cuando el parche se junta. Cuando el hambre no da espera y la serie está
+      a mitad de camino. Cuando la Selección juega. Cuando hay piscina,
+      pijamada o cuando hay que celebrar sin motivo. Ahí entra Cotess.
+    </p>
+
+    <div class="momentos-grid">
+      <div class="momento">
+        <div class="momento-num">Nº 01</div>
+        <h3 class="momento-title">Piscinas &amp; fiestas juveniles</h3>
+        <p class="momento-text">Porque el agua da hambre y el parche pide Cotess.</p>
+      </div>
+      <div class="momento">
+        <div class="momento-num">Nº 02</div>
+        <h3 class="momento-title">Recreos y eventos del cole</h3>
+        <p class="momento-text">El colegio se llena, la fila crece, Cotess aparece.</p>
+      </div>
+      <div class="momento">
+        <div class="momento-num">Nº 03</div>
+        <h3 class="momento-title">Deportes: voleibol, básquet</h3>
+        <p class="momento-text">Después del partido, antes del próximo. Siempre hay Cotess.</p>
+      </div>
+      <div class="momento">
+        <div class="momento-num">Nº 04</div>
+        <h3 class="momento-title">Festividades de la región</h3>
+        <p class="momento-text">Fiestas caribeñas, cumpleaños, novenas, carnavales.</p>
+      </div>
+      <div class="momento">
+        <div class="momento-num">Nº 05</div>
+        <h3 class="momento-title">Reuniones, parches, pijamadas</h3>
+        <p class="momento-text">Desde el paseo familiar hasta la trasnochada con los panas.</p>
+      </div>
+      <div class="momento">
+        <div class="momento-num">Nº 06</div>
+        <h3 class="momento-title">Viendo a la Selección</h3>
+        <p class="momento-text">Porque el gol sabe mejor con una Cotess en la mano.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COLECCIÓN / STICKERS ===== -->
+  <div class="coleccion-bg" id="coleccion">
+    <div class="section reveal">
+      <div class="section-label">03 · La Colección</div>
+      <h2 class="section-title">Stickers <em>que solo</em><br />los miembros tienen.</h2>
+      <p class="momentos-intro coleccion-intro">
+        Cada miembro del club recibe los 4 stickers oficiales. Son prueba de
+        pertenencia. No se venden. No se imprimen. Solo se entregan.
+      </p>
+
+      <div class="stickers">
+        <!-- Sticker 1: El último pedazo -->
+        <div class="sticker">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs><path id="s1" d="M 100,100 m -70,0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" /></defs>
+            <circle cx="100" cy="100" r="90" fill="#C8102E" />
+            <circle cx="100" cy="100" r="82" fill="none" stroke="#F5EFE2" stroke-width="2" stroke-dasharray="3 5" />
+            <text font-family="Big Shoulders Display" font-weight="900" font-size="14" fill="#F5EFE2" letter-spacing="2">
+              <textPath href="#s1" startOffset="0%">EL ÚLTIMO PEDAZO · NO LO DEJES · EL ÚLTIMO · </textPath>
+            </text>
+            <g transform="translate(100 110)">
+              <path d="M -28 -10 L 28 -10 L 0 30 Z" fill="#F5EFE2" />
+              <circle cx="-10" cy="-2" r="3" fill="#C8102E" />
+              <circle cx="10" cy="-2" r="3" fill="#C8102E" />
+              <circle cx="0" cy="12" r="3" fill="#C8102E" />
+            </g>
+          </svg>
+          <div class="sticker-label">El último pedazo</div>
+        </div>
+
+        <!-- Sticker 2: Pizza Infinita -->
+        <div class="sticker">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs><path id="s2" d="M 100,100 m -70,0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" /></defs>
+            <circle cx="100" cy="100" r="90" fill="#C9A961" />
+            <circle cx="100" cy="100" r="82" fill="none" stroke="#1A0A08" stroke-width="2" stroke-dasharray="3 5" />
+            <text font-family="Big Shoulders Display" font-weight="900" font-size="14" fill="#1A0A08" letter-spacing="2">
+              <textPath href="#s2" startOffset="0%">PIZZA INFINITA · SIN FIN · PIZZA INFINITA · </textPath>
+            </text>
+            <g transform="translate(100 108)" fill="none" stroke="#1A0A08" stroke-width="6" stroke-linecap="round">
+              <path d="M -30 0 C -30 -18 -10 -18 0 0 C 10 18 30 18 30 0 C 30 -18 10 -18 0 0 C -10 18 -30 18 -30 0 Z" />
+            </g>
+          </svg>
+          <div class="sticker-label">Pizza Infinita</div>
+        </div>
+
+        <!-- Sticker 3: Club de la Pizza -->
+        <div class="sticker">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs><path id="s3" d="M 100,100 m -70,0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" /></defs>
+            <circle cx="100" cy="100" r="90" fill="#F5EFE2" stroke="#1A0A08" stroke-width="3" />
+            <circle cx="100" cy="100" r="78" fill="none" stroke="#C8102E" stroke-width="1" />
+            <text font-family="Big Shoulders Display" font-weight="900" font-size="13" fill="#C8102E" letter-spacing="2">
+              <textPath href="#s3" startOffset="0%">EL CLUB DE LA PIZZA · MIEMBRO · EL CLUB · </textPath>
+            </text>
+            <text x="100" y="95" font-family="Big Shoulders Display" font-weight="900" font-size="18" fill="#1A0A08" text-anchor="middle" letter-spacing="1">CLUB</text>
+            <text x="100" y="118" font-family="Playfair Display" font-style="italic" font-weight="500" font-size="24" fill="#C8102E" text-anchor="middle">Pizza</text>
+          </svg>
+          <div class="sticker-label">Club de la Pizza</div>
+        </div>
+
+        <!-- Sticker 4: La Original -->
+        <div class="sticker">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs><path id="s4" d="M 100,100 m -70,0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" /></defs>
+            <circle cx="100" cy="100" r="90" fill="#1A0A08" stroke="#C9A961" stroke-width="2" />
+            <circle cx="100" cy="100" r="82" fill="none" stroke="#C9A961" stroke-width="1" stroke-dasharray="2 4" />
+            <text font-family="Big Shoulders Display" font-weight="900" font-size="14" fill="#C9A961" letter-spacing="2">
+              <textPath href="#s4" startOffset="0%">LA ORIGINAL · ACEPTA IMITACIONES? NO · </textPath>
+            </text>
+            <text x="100" y="108" font-family="Playfair Display" font-style="italic" font-weight="700" font-size="36" fill="#C9A961" text-anchor="middle">La</text>
+            <text x="100" y="140" font-family="Big Shoulders Display" font-weight="900" font-size="20" fill="#F5EFE2" text-anchor="middle" letter-spacing="2">ORIGINAL</text>
+          </svg>
+          <div class="sticker-label">La Original</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PILARES ===== -->
+  <div class="pilares-bg">
+    <section class="section reveal">
+      <div class="section-label">04 · Los Pilares</div>
+      <h2 class="section-title">No solo<br /><em>es pizza.</em></h2>
+      <p class="momentos-intro">
+        Cotess se sostiene sobre 11 pilares. Cada uno es un mundo. Juntos, son el club.
+      </p>
+
+      <div class="pilares-list">
+        <div class="pilar"><span class="pilar-num">01</span><span class="pilar-name">Comida</span><span class="pilar-tag">Sabor original</span></div>
+        <div class="pilar"><span class="pilar-num">02</span><span class="pilar-name">Música</span><span class="pilar-tag">Bailable</span></div>
+        <div class="pilar"><span class="pilar-num">03</span><span class="pilar-name">Fotografía</span><span class="pilar-tag">Recuerdo</span></div>
+        <div class="pilar"><span class="pilar-num">04</span><span class="pilar-name">Redes Sociales</span><span class="pilar-tag">Conexión</span></div>
+        <div class="pilar"><span class="pilar-num">05</span><span class="pilar-name">Ads</span><span class="pilar-tag">Patrocinio</span></div>
+        <div class="pilar"><span class="pilar-num">06</span><span class="pilar-name">Juego</span><span class="pilar-tag">Divertido</span></div>
+        <div class="pilar"><span class="pilar-num">07</span><span class="pilar-name">Moda</span><span class="pilar-tag">Estilo</span></div>
+        <div class="pilar"><span class="pilar-num">08</span><span class="pilar-name">Retro</span><span class="pilar-tag">Clásico</span></div>
+        <div class="pilar"><span class="pilar-num">09</span><span class="pilar-name">Exclusividad</span><span class="pilar-tag">Membresía</span></div>
+        <div class="pilar"><span class="pilar-num">10</span><span class="pilar-name">Espacio Abierto</span><span class="pilar-tag">Interacción social</span></div>
+        <div class="pilar"><span class="pilar-num">11</span><span class="pilar-name">Stickers</span><span class="pilar-tag">Pertenencia</span></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== FAMILIA COTESS ===== -->
+  <div class="familia-bg" id="familia">
+    <div class="section reveal">
+      <div class="section-label">05 · La Familia</div>
+      <h2 class="section-title">Tres hermanos,<br /><em>un mismo club.</em></h2>
+
+      <div class="familia-grid">
+        <div class="producto">
+          <span class="producto-tag">El original</span>
+          <div class="producto-name">COTESS</div>
+          <div class="producto-sub">Pizza</div>
+          <p class="producto-desc">
+            El alma del club. Masa propia, sabor de la casa, el pedazo que todos pelean. Donde empezó todo.
+          </p>
+        </div>
+        <div class="producto">
+          <span class="producto-tag">Para el parche</span>
+          <div class="producto-name">COTESS</div>
+          <div class="producto-sub">Food</div>
+          <p class="producto-desc">
+            Lo que acompaña, lo que completa. Acompañamientos, entradas y antojos hechos con la misma receta de pertenencia.
+          </p>
+        </div>
+        <div class="producto">
+          <span class="producto-tag">Nuevo</span>
+          <div class="producto-name">COTESS</div>
+          <div class="producto-sub">Burguer</div>
+          <p class="producto-desc">
+            Cuando la pizza no alcanza. La hamburguesa del club, con el mismo sello y la misma calle detrás.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ÚNETE ===== -->
+  <section class="unirse reveal" id="unirse">
+    <h2>Únete al<br /><em>Club.</em></h2>
+    <p>
+      La invitación llega por recomendación. Si ya conoces a un miembro, pídele
+      tu código. Si no, déjanos tu contacto y esperaremos el momento.
+    </p>
+    <div class="cta-group">
+      <a href="#" class="btn-primary">Pedir invitación</a>
+      <a href="#" class="btn-secondary">Tengo un código</a>
+    </div>
+
+    <div class="unirse-ticket">
+      <div class="ticket-icon">★</div>
+      <div class="ticket-body">
+        <div class="ticket-title">Miembro Nº provisional</div>
+        <div class="ticket-desc">
+          Este ticket se convierte en tu número de miembro al validar tu código.
+        </div>
+      </div>
+      <div class="ticket-num">#00—————</div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>COTESS <em>Pizza</em></h3>
+        <p>
+          El Club de la Pizza. Miembros desde 2025. Solo por invitación.
+          Siempre disponible — 24 horas, 7 días a la semana.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Club</h4>
+        <ul>
+          <li><a href="#club">Las 4 reglas</a></li>
+          <li><a href="#coleccion">Stickers</a></li>
+          <li><a href="#unirse">Pedir invitación</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Familia</h4>
+        <ul>
+          <li><a href="#familia">Cotess Pizza</a></li>
+          <li><a href="#familia">Cotess Food</a></li>
+          <li><a href="#familia">Cotess Burguer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li>Instagram</li>
+          <li>TikTok</li>
+          <li>WhatsApp</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 COTESS · El Club de la Pizza</span>
+      <span>Hecho en el Caribe · Colombia</span>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
