@@ -1,0 +1,32 @@
+/* =========================================================================
+   VARIABLES.CSS
+   -------------------------------------------------------------------------
+   Design tokens del proyecto. Toda la paleta, fuentes y constantes del
+   sistema viven acá. Si quieres cambiar el rojo de la marca o la tipografía,
+   este es el único archivo que tocas.
+   ========================================================================= */
+
+:root {
+  /* --- Paleta de marca --- */
+  --red:        #C8102E;   /* Rojo Cotess principal */
+  --red-deep:   #8B0A1F;   /* Rojo oscuro para hovers / acentos */
+  --red-glow:   #E8243F;   /* Rojo claro para efectos */
+
+  /* --- Neutros --- */
+  --cream:      #F5EFE2;   /* Fondo principal (más cálido que el blanco) */
+  --cream-pale: #FBF7EC;   /* Fondo alternativo, más claro */
+  --ink:        #1A0A08;   /* "Negro" con tinte rojizo */
+  --ink-soft:   #3A2A28;   /* Texto secundario */
+
+  /* --- Acentos --- */
+  --gold:       #C9A961;   /* Dorado del club (exclusividad) */
+  --gold-deep:  #9A7F3F;
+
+  /* --- Bordes --- */
+  --border:     rgba(26, 10, 8, 0.12);
+
+  /* --- Tipografía --- */
+  --display:    "Big Shoulders Display", Impact, sans-serif;
+  --signature:  "Playfair Display", Georgia, serif;
+  --body:       "Bricolage Grotesque", -apple-system, sans-serif;
+}

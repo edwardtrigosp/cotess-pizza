@@ -1,0 +1,921 @@
+/* =========================================================================
+   ORDERING.CSS
+   -------------------------------------------------------------------------
+   Estilos de la página order.html (split-screen de compra):
+     - Header de la página
+     - Layout de 2 columnas (opciones a la izquierda, sidebar a la derecha)
+     - Steps del formulario (pizza, tamaño, extras)
+     - Sidebar sticky con resumen en vivo y botón de pago
+     - Modal del ticket
+     - Responsive: en móvil el sidebar se vuelve bottom sheet fijo
+     - Reglas de impresión
+   ========================================================================= */
+
+/* =========================================================================
+   PAGE HEADER
+   ========================================================================= */
+
+body.page-order {
+  background: var(--cream-pale);
+}
+
+/* Variante del CTA del nav para "Volver" */
+.nav-cta-back {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.nav-cta-back:hover {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+}
+
+.order-page-header {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 140px 32px 40px;
+}
+
+.order-page-title {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin: 16px 0 20px;
+  color: var(--ink);
+}
+
+.order-page-title em {
+  font-family: var(--signature);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--red);
+}
+
+.order-page-intro {
+  max-width: 620px;
+  font-size: 17px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+/* =========================================================================
+   LAYOUT 2 COLUMNAS
+   ========================================================================= */
+
+.order-layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 48px;
+  align-items: start;
+}
+
+.order-options {
+  min-width: 0; /* evita que el grid se desborde */
+}
+
+/* =========================================================================
+   STEPS
+   ========================================================================= */
+
+.order-step {
+  margin-bottom: 56px;
+}
+
+.order-step:last-child { margin-bottom: 0; }
+
+.order-step-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.order-step-num {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  background: var(--ink);
+  color: var(--gold);
+  padding: 6px 12px;
+  border-radius: 2px;
+}
+
+.order-step-header h3 {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(26px, 3.5vw, 38px);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.step-optional {
+  font-family: var(--signature);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ink-soft);
+}
+
+/* =========================================================================
+   STEP 1 — PIZZA CARDS
+   ========================================================================= */
+
+.pizza-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.pizza-card {
+  cursor: pointer;
+  position: relative;
+  display: block;
+}
+
+.pizza-card input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pizza-card-inner {
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  padding: 24px 22px;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  height: 100%;
+}
+
+.pizza-card:hover .pizza-card-inner {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.pizza-card input:checked + .pizza-card-inner {
+  background: var(--red);
+  color: var(--cream);
+  border-color: var(--red);
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.pizza-card input:checked + .pizza-card-inner .pizza-card-desc { color: rgba(245, 239, 226, 0.85); }
+.pizza-card input:checked + .pizza-card-inner .pizza-card-price { color: var(--gold); }
+
+.pizza-card input:checked + .pizza-card-inner::after {
+  content: "✓";
+  position: absolute;
+  top: 10px; right: 14px;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--gold);
+}
+
+.pizza-card-name {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  margin-bottom: 6px;
+  color: inherit;
+}
+
+.pizza-card-desc {
+  font-size: 12px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin-bottom: 14px;
+  min-height: 36px;
+}
+
+.pizza-card-price {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--red);
+  letter-spacing: 0.01em;
+}
+
+/* =========================================================================
+   STEP 2 — SIZE OPTIONS
+   ========================================================================= */
+
+.size-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.size-option {
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.size-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.size-option-inner {
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  padding: 22px 18px;
+  text-align: center;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.size-option:hover .size-option-inner { background: var(--cream-pale); }
+
+.size-option input:checked + .size-option-inner {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+}
+
+.size-option input:checked + .size-option-inner .size-option-icon { color: var(--gold); }
+.size-option input:checked + .size-option-inner .size-option-detail { color: rgba(245, 239, 226, 0.7); }
+
+.size-option-icon {
+  font-size: 28px;
+  color: var(--red);
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.size-option-name {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: inherit;
+  margin-bottom: 4px;
+}
+
+.size-option-detail {
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+
+.size-option[data-size="personal"] .size-option-icon { font-size: 18px; }
+.size-option[data-size="mediana"]  .size-option-icon { font-size: 26px; }
+.size-option[data-size="grande"]   .size-option-icon { font-size: 34px; }
+.size-option[data-size="familiar"] .size-option-icon { font-size: 42px; }
+
+/* =========================================================================
+   STEP 3 — EXTRAS CHIPS
+   ========================================================================= */
+
+.extras-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.extra-chip {
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.extra-chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.extra-chip-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  padding: 10px 18px;
+  border-radius: 999px;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  font-size: 14px;
+  user-select: none;
+}
+
+.extra-chip:hover .extra-chip-inner { background: var(--cream-pale); }
+
+.extra-chip input:checked + .extra-chip-inner {
+  background: var(--red);
+  color: var(--cream);
+  border-color: var(--red);
+}
+
+.extra-chip input:checked + .extra-chip-inner .extra-chip-price { color: var(--gold); }
+
+.extra-chip-name {
+  font-family: var(--body);
+  font-weight: 500;
+}
+
+.extra-chip-price {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--red);
+  letter-spacing: 0.02em;
+}
+
+.extra-chip input:checked + .extra-chip-inner::before {
+  content: "✓";
+  font-weight: 900;
+  color: var(--gold);
+}
+
+/* =========================================================================
+   SIDEBAR — RESUMEN EN VIVO
+   ========================================================================= */
+
+.order-sidebar {
+  position: sticky;
+  top: 96px; /* debajo del nav */
+  align-self: start;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 28px 28px 24px;
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--red);
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+/* --- Header del sidebar --- */
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px dashed rgba(245, 239, 226, 0.25);
+}
+
+.sidebar-kicker {
+  font-family: var(--body);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.sidebar-title {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--cream);
+}
+
+.sidebar-clear {
+  background: transparent;
+  border: 1px solid rgba(245, 239, 226, 0.3);
+  color: var(--cream);
+  font-family: var(--body);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.sidebar-clear:hover {
+  background: var(--cream);
+  color: var(--ink);
+  border-color: var(--cream);
+}
+
+/* --- Empty state --- */
+
+.sidebar-empty {
+  text-align: center;
+  padding: 40px 12px;
+  color: rgba(245, 239, 226, 0.6);
+}
+
+.sidebar-empty-icon {
+  font-size: 44px;
+  color: var(--gold);
+  opacity: 0.4;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.sidebar-empty-text {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.sidebar-empty-text strong {
+  color: var(--cream);
+  font-weight: 700;
+}
+
+/* --- Items list --- */
+
+.sidebar-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 4px;
+}
+
+.sidebar-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(245, 239, 226, 0.15);
+  animation: itemIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.sidebar-item:last-child { border-bottom: none; }
+
+@keyframes itemIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.sidebar-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar-item-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--cream);
+  line-height: 1.2;
+}
+
+.sidebar-item-meta {
+  font-size: 11px;
+  color: rgba(245, 239, 226, 0.55);
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-item-price {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--gold);
+  white-space: nowrap;
+  align-self: center;
+}
+
+/* Variante para extras (más pequeños) */
+.sidebar-item--extra .sidebar-item-name {
+  font-size: 13px;
+  color: rgba(245, 239, 226, 0.85);
+  text-transform: none;
+  font-weight: 500;
+  font-family: var(--body);
+}
+.sidebar-item--extra .sidebar-item-name::before {
+  content: "+ ";
+  color: var(--red);
+  font-weight: 700;
+}
+.sidebar-item--extra .sidebar-item-price {
+  font-size: 13px;
+  color: rgba(245, 239, 226, 0.7);
+  font-weight: 500;
+  font-family: var(--body);
+}
+
+/* --- Totals --- */
+
+.sidebar-totals {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(245, 239, 226, 0.25);
+}
+
+.totals-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: rgba(245, 239, 226, 0.65);
+}
+
+.totals-line--final {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 2px solid rgba(245, 239, 226, 0.2);
+  margin-bottom: 0;
+  align-items: baseline;
+}
+
+.totals-label-final {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.totals-value-final {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 30px;
+  color: var(--gold);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+/* --- Botón Pagar sidebar --- */
+
+.btn-pagar-sidebar {
+  width: 100%;
+  margin-top: 24px;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--red);
+  color: var(--cream);
+  border: 2px solid var(--red);
+  padding: 18px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.btn-pagar-sidebar:hover:not(:disabled) {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.btn-pagar-sidebar:disabled {
+  background: transparent;
+  color: rgba(245, 239, 226, 0.3);
+  border-color: rgba(245, 239, 226, 0.2);
+  cursor: not-allowed;
+}
+
+.sidebar-note {
+  margin-top: 16px;
+  font-size: 11px;
+  text-align: center;
+  color: rgba(245, 239, 226, 0.5);
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+
+/* =========================================================================
+   RESPONSIVE — móvil: sidebar se vuelve bottom sheet
+   ========================================================================= */
+
+@media (max-width: 900px) {
+  .order-layout {
+    grid-template-columns: 1fr;
+    padding: 24px 20px 220px; /* espacio abajo para el sidebar fixed */
+  }
+
+  .order-page-header {
+    padding: 120px 20px 20px;
+  }
+
+  .order-sidebar {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 70vh;
+    border: none;
+    border-top: 3px solid var(--red);
+    box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.3);
+    padding: 20px 20px 16px;
+    z-index: 90;
+  }
+
+  .sidebar-header  { padding-bottom: 12px; margin-bottom: 12px; }
+  .sidebar-title   { font-size: 22px; }
+  .sidebar-empty   { padding: 20px 12px; }
+  .sidebar-empty-icon { font-size: 32px; margin-bottom: 10px; }
+  .totals-value-final { font-size: 24px; }
+  .btn-pagar-sidebar  { padding: 14px 20px; font-size: 15px; margin-top: 14px; }
+  .sidebar-note    { margin-top: 10px; }
+}
+
+/* =========================================================================
+   FOOTER (variante compacta para order.html)
+   ========================================================================= */
+
+.order-footer {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 60px 32px 30px;
+}
+
+.order-footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .order-footer-inner { grid-template-columns: 1fr 1fr; }
+  .order-footer-inner .footer-brand { grid-column: 1 / -1; }
+}
+
+/* =========================================================================
+   TICKET MODAL
+   ========================================================================= */
+
+.ticket-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+  overflow-y: auto;
+}
+
+.ticket-modal.is-open {
+  display: flex;
+  animation: ticketFadeIn 0.3s ease-out;
+}
+
+@keyframes ticketFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.ticket-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 10, 8, 0.85);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+
+.ticket-paper {
+  position: relative;
+  z-index: 1;
+  background: var(--cream);
+  width: 100%;
+  max-width: 420px;
+  padding: 36px 36px 28px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  font-family: "Courier New", "Courier", monospace;
+  color: var(--ink);
+  animation: ticketSlideIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --perf: radial-gradient(circle at 8px 50%, transparent 6px, #000 7px);
+  mask:
+    var(--perf) top / 16px 14px repeat-x,
+    linear-gradient(#000, #000) center / 100% calc(100% - 28px) no-repeat,
+    var(--perf) bottom / 16px 14px repeat-x;
+  -webkit-mask:
+    var(--perf) top / 16px 14px repeat-x,
+    linear-gradient(#000, #000) center / 100% calc(100% - 28px) no-repeat,
+    var(--perf) bottom / 16px 14px repeat-x;
+}
+
+@keyframes ticketSlideIn {
+  from { transform: translateY(40px) scale(0.96); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.ticket-header {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed var(--ink);
+  margin-bottom: 20px;
+}
+
+.ticket-logo {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 32px;
+  color: var(--red);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.ticket-logo em {
+  font-family: var(--signature);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink);
+  font-size: 22px;
+  margin-left: 4px;
+}
+
+.ticket-sub {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+.ticket-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-bottom: 16px;
+  color: var(--ink-soft);
+}
+
+.ticket-meta strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.ticket-items {
+  padding: 16px 0;
+  border-top: 1px dashed var(--ink);
+  border-bottom: 1px dashed var(--ink);
+}
+
+.ticket-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.ticket-item:last-child { margin-bottom: 0; }
+.ticket-item-name { flex: 1; padding-right: 12px; }
+
+.ticket-item-name em {
+  display: block;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+.ticket-item-price {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ticket-totals { padding: 16px 0; }
+
+.ticket-total-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.ticket-total-line.is-total {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 24px;
+  color: var(--red);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 2px solid var(--ink);
+}
+
+.ticket-barcode {
+  text-align: center;
+  padding: 20px 0 8px;
+}
+
+.ticket-barcode-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 1px;
+  height: 50px;
+}
+
+.ticket-barcode-bars span {
+  display: block;
+  background: var(--ink);
+  height: 100%;
+  width: 2px;
+}
+
+.ticket-barcode-num {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+.ticket-footer {
+  text-align: center;
+  padding-top: 16px;
+  border-top: 1px dashed var(--ink);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.ticket-footer strong {
+  color: var(--red);
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.ticket-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  max-width: 420px;
+  width: 100%;
+}
+
+.ticket-actions button {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 2px solid var(--cream);
+}
+
+.btn-ticket-primary {
+  background: var(--cream);
+  color: var(--ink);
+}
+.btn-ticket-primary:hover { background: var(--gold); border-color: var(--gold); }
+
+.btn-ticket-secondary {
+  background: transparent;
+  color: var(--cream);
+}
+.btn-ticket-secondary:hover { background: var(--cream); color: var(--ink); }
+
+/* =========================================================================
+   PRINT STYLES — solo sale el ticket en papel
+   ========================================================================= */
+
+@media print {
+  body::before { display: none !important; }
+  body * { visibility: hidden; }
+  .ticket-modal, .ticket-modal * { visibility: visible; }
+  .ticket-backdrop, .ticket-actions { display: none !important; }
+  .ticket-modal {
+    position: static;
+    display: block;
+    padding: 0;
+  }
+  .ticket-paper {
+    box-shadow: none;
+    max-width: 100%;
+    mask: none;
+    -webkit-mask: none;
+    animation: none;
+  }
+}

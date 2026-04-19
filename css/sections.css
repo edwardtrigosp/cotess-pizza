@@ -1,0 +1,584 @@
+/* =========================================================================
+   SECTIONS.CSS
+   -------------------------------------------------------------------------
+   Estilos específicos de cada sección de la landing, en orden de aparición:
+     1. Hero           (header principal)
+     2. Manifiesto     (las 4 reglas del club)
+     3. Momentos       (cuándo es un momento Cotess)
+     4. Colección      (stickers del club)
+     5. Pilares        (11 pilares de marca)
+     6. Familia        (Pizza / Food / Burguer)
+     7. Únete          (CTA + ticket)
+     8. Footer
+   ========================================================================= */
+
+/* Contenedor genérico de sección con padding máximo */
+.section {
+  padding: 120px 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* =========================================================================
+   1. HERO
+   ========================================================================= */
+
+.hero {
+  min-height: 100vh;
+  padding: 140px 32px 80px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-marquee-top {
+  position: absolute;
+  top: 90px; left: 0; right: 0;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+  background: var(--cream-pale);
+}
+
+.hero-title {
+  font-family: var(--display);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: var(--red);
+  margin: 40px 0 24px;
+  max-width: 1200px;
+}
+
+.hero-title span { display: block; }
+
+.hero-line-1 {
+  font-size: clamp(64px, 14vw, 220px);
+}
+
+.hero-line-2 {
+  font-size: clamp(64px, 14vw, 220px);
+  padding-left: clamp(20px, 6vw, 100px);
+}
+
+.hero-line-3 {
+  font-family: var(--signature);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink);
+  font-size: clamp(72px, 16vw, 260px);
+  line-height: 1;
+  padding-left: clamp(40px, 12vw, 200px);
+}
+
+.hero-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 40px;
+  max-width: 1400px;
+}
+
+.hero-tagline {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(22px, 2.5vw, 34px);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  max-width: 500px;
+}
+
+.hero-tagline em {
+  font-family: var(--signature);
+  font-style: italic;
+  font-weight: 500;
+  text-transform: none;
+  color: var(--red);
+  letter-spacing: -0.01em;
+}
+
+.hero-tagline-desc {
+  font-family: var(--body);
+  font-weight: 400;
+  font-size: 15px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--ink-soft);
+  max-width: 380px;
+  margin-top: 20px;
+  line-height: 1.55;
+}
+
+.hero-stamp {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+}
+
+.hero-stamp svg {
+  width: 100%;
+  height: 100%;
+  animation: spin 22s linear infinite;
+}
+
+.hero-stamp::after {
+  content: "◉";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--red);
+  font-size: 28px;
+}
+
+/* =========================================================================
+   2. MANIFIESTO / LAS 4 REGLAS
+   ========================================================================= */
+
+.rules {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2px;
+  background: var(--border);
+  border: 2px solid var(--ink);
+}
+
+.rule {
+  background: var(--cream);
+  padding: 40px 32px 48px;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.rule:hover {
+  background: var(--cream-pale);
+}
+
+.rule-num {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 80px;
+  line-height: 1;
+  color: var(--red);
+  margin-bottom: 20px;
+}
+
+.rule-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.rule-text {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+/* =========================================================================
+   3. MOMENTOS
+   ========================================================================= */
+
+.momentos-intro {
+  max-width: 600px;
+  margin-bottom: 60px;
+  font-size: 17px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.momentos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.momento {
+  background: var(--cream-pale);
+  border: 2px solid var(--ink);
+  padding: 28px 24px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: default;
+  overflow: hidden;
+}
+
+/* Efecto de "inundación" roja al hacer hover */
+.momento::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--red);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 0;
+}
+
+.momento:hover::before {
+  transform: translateY(0);
+}
+
+.momento:hover .momento-num,
+.momento:hover .momento-title,
+.momento:hover .momento-text {
+  color: var(--cream);
+}
+
+.momento:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.momento > * {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s;
+}
+
+.momento-num {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--red);
+  margin-bottom: 16px;
+  letter-spacing: 0.1em;
+}
+
+.momento-title {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.momento-text {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* =========================================================================
+   4. COLECCIÓN / STICKERS
+   ========================================================================= */
+
+.coleccion-bg {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 120px 32px;
+}
+
+.coleccion-bg .section {
+  padding: 0;
+}
+
+/* Overrides en fondo oscuro */
+.coleccion-bg .section-label        { color: var(--gold); }
+.coleccion-bg .section-label::before { background: var(--gold); }
+.coleccion-bg .section-title        { color: var(--cream); }
+.coleccion-bg .section-title em     { color: var(--gold); }
+
+.coleccion-intro {
+  color: rgba(245, 239, 226, 0.75) !important;
+}
+
+.stickers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* =========================================================================
+   5. PILARES
+   ========================================================================= */
+
+.pilares-bg {
+  background: var(--cream-pale);
+}
+
+.pilares-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+
+.pilar {
+  padding: 28px 20px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background 0.3s;
+}
+
+.pilar:hover {
+  background: var(--cream);
+}
+
+.pilar-num {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 12px;
+  color: var(--red);
+  letter-spacing: 0.1em;
+}
+
+.pilar-name {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 26px;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.pilar-tag {
+  font-family: var(--signature);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+
+/* =========================================================================
+   6. FAMILIA COTESS
+   ========================================================================= */
+
+.familia-bg {
+  background: var(--red);
+  color: var(--cream);
+  padding: 120px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.familia-bg .section { padding: 0; }
+
+.familia-bg .section-label        { color: var(--cream); }
+.familia-bg .section-label::before { background: var(--cream); }
+.familia-bg .section-title        { color: var(--cream); }
+.familia-bg .section-title em     { color: var(--gold); }
+
+.familia-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.producto {
+  background: var(--cream);
+  color: var(--ink);
+  padding: 60px 32px 40px;
+  border-radius: 4px;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border: 3px solid var(--ink);
+}
+
+.producto:hover {
+  transform: translate(-6px, -6px);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+.producto-tag {
+  position: absolute;
+  top: -14px;
+  left: 24px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 11px;
+  padding: 6px 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.producto-name {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 52px;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  color: var(--red);
+}
+
+.producto-sub {
+  font-family: var(--signature);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 28px;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.producto-desc {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+/* =========================================================================
+   7. ÚNETE AL CLUB
+   ========================================================================= */
+
+.unirse {
+  padding: 140px 32px;
+  text-align: center;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.unirse h2 {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(56px, 12vw, 180px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--red);
+  margin-bottom: 20px;
+}
+
+.unirse h2 em {
+  font-family: var(--signature);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.unirse p {
+  font-size: 18px;
+  color: var(--ink-soft);
+  max-width: 520px;
+  margin: 0 auto 48px;
+  line-height: 1.6;
+}
+
+.cta-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* =========================================================================
+   8. FOOTER
+   ========================================================================= */
+
+footer {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 80px 32px 40px;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-brand h3 {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 0.9;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+.footer-brand h3 em {
+  font-family: var(--signature);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--cream);
+}
+
+.footer-brand p {
+  font-size: 14px;
+  opacity: 0.7;
+  max-width: 320px;
+  line-height: 1.6;
+}
+
+.footer-col h4 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+
+.footer-col li:hover {
+  opacity: 1;
+}
+
+.footer-col a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 60px auto 0;
+  padding-top: 30px;
+  border-top: 1px solid rgba(245, 239, 226, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 12px;
+  opacity: 0.6;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.05em;
+}
+
+/* =========================================================================
+   RESPONSIVE — mobile adjustments
+   ========================================================================= */
+
+@media (max-width: 768px) {
+  .section            { padding: 80px 20px; }
+  .coleccion-bg,
+  .familia-bg,
+  .unirse             { padding: 80px 20px; }
+
+  .hero-meta          { flex-direction: column; align-items: flex-start; }
+
+  .footer-inner       { grid-template-columns: 1fr 1fr; }
+  .footer-brand       { grid-column: 1 / -1; }
+}

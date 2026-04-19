@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arma tu Cotess — Ordenar</title>
+  <meta name="description" content="Arma tu pizza Cotess: elige la base, el tamaño y los extras. Disponible 24/7." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Bricolage+Grotesque:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/ordering.css" />
+</head>
+
+<body class="page-order">
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <a href="index.html" class="logo">COTESS <em>Pizza</em></a>
+    <div class="nav-links">
+      <a href="index.html#club">El Club</a>
+      <a href="index.html#momentos">Momentos</a>
+      <a href="index.html#coleccion">Colección</a>
+      <a href="index.html#familia">Familia</a>
+    </div>
+    <a href="index.html" class="nav-cta nav-cta-back">← Inicio</a>
+  </nav>
+
+  <!-- ===== HEADER DE LA PÁGINA ===== -->
+  <header class="order-page-header">
+    <h1 class="order-page-title">Arma tu <em>Cotess.</em></h1>
+    <p class="order-page-intro">
+      Elige la base, el tamaño y los extras. Tu orden se va armando a la derecha en vivo.
+    </p>
+  </header>
+
+  <!-- ===== LAYOUT DE 2 COLUMNAS ===== -->
+  <main class="order-layout">
+
+    <!-- ========== LEFT: OPCIONES ========== -->
+    <section class="order-options">
+
+      <!-- STEP 1: BASE -->
+      <div class="order-step">
+        <div class="order-step-header">
+          <span class="order-step-num">PASO 01</span>
+          <h3>Elige tu base</h3>
+        </div>
+        <div class="pizza-grid">
+          <label class="pizza-card" data-id="original" data-name="La Original" data-price="25000">
+            <input type="radio" name="pizza" />
+            <div class="pizza-card-inner">
+              <div class="pizza-card-name">La Original</div>
+              <div class="pizza-card-desc">Mozzarella y salsa de la casa. El clásico del club.</div>
+              <div class="pizza-card-price">$25.000</div>
+            </div>
+          </label>
+
+          <label class="pizza-card" data-id="caribena" data-name="La Caribeña" data-price="32000">
+            <input type="radio" name="pizza" />
+            <div class="pizza-card-inner">
+              <div class="pizza-card-name">La Caribeña</div>
+              <div class="pizza-card-desc">Pollo, piña y jamón. Sabor de la costa.</div>
+              <div class="pizza-card-price">$32.000</div>
+            </div>
+          </label>
+
+          <label class="pizza-card" data-id="parche" data-name="La del Parche" data-price="35000">
+            <input type="radio" name="pizza" />
+            <div class="pizza-card-inner">
+              <div class="pizza-card-name">La del Parche</div>
+              <div class="pizza-card-desc">Pepperoni y doble queso. Para compartir. O no.</div>
+              <div class="pizza-card-price">$35.000</div>
+            </div>
+          </label>
+
+          <label class="pizza-card" data-id="costena" data-name="La Costeña" data-price="38000">
+            <input type="radio" name="pizza" />
+            <div class="pizza-card-inner">
+              <div class="pizza-card-name">La Costeña</div>
+              <div class="pizza-card-desc">Chorizo, cebolla caramelizada y queso criollo.</div>
+              <div class="pizza-card-price">$38.000</div>
+            </div>
+          </label>
+
+          <label class="pizza-card" data-id="infinita" data-name="La Infinita" data-price="45000">
+            <input type="radio" name="pizza" />
+            <div class="pizza-card-inner">
+              <div class="pizza-card-name">La Infinita</div>
+              <div class="pizza-card-desc">Todos los ingredientes premium. La que no se acaba.</div>
+              <div class="pizza-card-price">$45.000</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- STEP 2: SIZE -->
+      <div class="order-step">
+        <div class="order-step-header">
+          <span class="order-step-num">PASO 02</span>
+          <h3>Elige el tamaño</h3>
+        </div>
+        <div class="size-grid">
+          <label class="size-option" data-size="personal" data-name="Personal" data-multiplier="1">
+            <input type="radio" name="size" />
+            <div class="size-option-inner">
+              <div class="size-option-icon">●</div>
+              <div class="size-option-name">Personal</div>
+              <div class="size-option-detail">20cm · 1 persona</div>
+            </div>
+          </label>
+          <label class="size-option" data-size="mediana" data-name="Mediana" data-multiplier="1.4">
+            <input type="radio" name="size" />
+            <div class="size-option-inner">
+              <div class="size-option-icon">●</div>
+              <div class="size-option-name">Mediana</div>
+              <div class="size-option-detail">30cm · 2 personas</div>
+            </div>
+          </label>
+          <label class="size-option" data-size="grande" data-name="Grande" data-multiplier="1.8">
+            <input type="radio" name="size" />
+            <div class="size-option-inner">
+              <div class="size-option-icon">●</div>
+              <div class="size-option-name">Grande</div>
+              <div class="size-option-detail">40cm · 3-4 personas</div>
+            </div>
+          </label>
+          <label class="size-option" data-size="familiar" data-name="Familiar" data-multiplier="2.3">
+            <input type="radio" name="size" />
+            <div class="size-option-inner">
+              <div class="size-option-icon">●</div>
+              <div class="size-option-name">Familiar</div>
+              <div class="size-option-detail">50cm · 5+ personas</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- STEP 3: EXTRAS -->
+      <div class="order-step">
+        <div class="order-step-header">
+          <span class="order-step-num">PASO 03</span>
+          <h3>Agrega extras <span class="step-optional">(opcional)</span></h3>
+        </div>
+        <div class="extras-grid">
+          <label class="extra-chip" data-id="extra-queso" data-name="Extra queso" data-price="3000">
+            <input type="checkbox" name="extra" />
+            <span class="extra-chip-inner">
+              <span class="extra-chip-name">Extra queso</span>
+              <span class="extra-chip-price">+$3.000</span>
+            </span>
+          </label>
+          <label class="extra-chip" data-id="pepperoni" data-name="Pepperoni extra" data-price="4000">
+            <input type="checkbox" name="extra" />
+            <span class="extra-chip-inner">
+              <span class="extra-chip-name">Pepperoni</span>
+              <span class="extra-chip-price">+$4.000</span>
+            </span>
+          </label>
+          <label class="extra-chip" data-id="champinones" data-name="Champiñones" data-price="3500">
+            <input type="checkbox" name="extra" />
+            <span class="extra-chip-inner">
+              <span class="extra-chip-name">Champiñones</span>
+              <span class="extra-chip-price">+$3.500</span>
+            </span>
+          </label>
+          <label class="extra-chip" data-id="jalapenos" data-name="Jalapeños" data-price="2500">
+            <input type="checkbox" name="extra" />
+            <span class="extra-chip-inner">
+              <span class="extra-chip-name">Jalapeños</span>
+              <span class="extra-chip-price">+$2.500</span>
+            </span>
+          </label>
+          <label class="extra-chip" data-id="aceitunas" data-name="Aceitunas" data-price="3000">
+            <input type="checkbox" name="extra" />
+            <span class="extra-chip-inner">
+              <span class="extra-chip-name">Aceitunas</span>
+              <span class="extra-chip-price">+$3.000</span>
+            </span>
+          </label>
+          <label class="extra-chip" data-id="pollo" data-name="Pollo" data-price="5000">
+            <input type="checkbox" name="extra" />
+            <span class="extra-chip-inner">
+              <span class="extra-chip-name">Pollo</span>
+              <span class="extra-chip-price">+$5.000</span>
+            </span>
+          </label>
+          <label class="extra-chip" data-id="cebolla" data-name="Cebolla caramelizada" data-price="3000">
+            <input type="checkbox" name="extra" />
+            <span class="extra-chip-inner">
+              <span class="extra-chip-name">Cebolla caramelizada</span>
+              <span class="extra-chip-price">+$3.000</span>
+            </span>
+          </label>
+          <label class="extra-chip" data-id="tocineta" data-name="Tocineta" data-price="5500">
+            <input type="checkbox" name="extra" />
+            <span class="extra-chip-inner">
+              <span class="extra-chip-name">Tocineta</span>
+              <span class="extra-chip-price">+$5.500</span>
+            </span>
+          </label>
+          <label class="extra-chip" data-id="chorizo" data-name="Chorizo" data-price="5000">
+            <input type="checkbox" name="extra" />
+            <span class="extra-chip-inner">
+              <span class="extra-chip-name">Chorizo</span>
+              <span class="extra-chip-price">+$5.000</span>
+            </span>
+          </label>
+          <label class="extra-chip" data-id="pina" data-name="Piña" data-price="3000">
+            <input type="checkbox" name="extra" />
+            <span class="extra-chip-inner">
+              <span class="extra-chip-name">Piña</span>
+              <span class="extra-chip-price">+$3.000</span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== RIGHT: SIDEBAR RESUMEN ========== -->
+    <aside class="order-sidebar" aria-label="Resumen de tu orden">
+
+      <div class="sidebar-header">
+        <div>
+          <div class="sidebar-kicker">Resumen</div>
+          <h2 class="sidebar-title">Tu orden</h2>
+        </div>
+        <button class="sidebar-clear" id="btn-clear-order" type="button" hidden>Limpiar</button>
+      </div>
+
+      <!-- Empty state -->
+      <div class="sidebar-empty" id="sidebar-empty">
+        <div class="sidebar-empty-icon">●</div>
+        <p class="sidebar-empty-text">
+          Empieza eligiendo tu <strong>base</strong> en el paso 01.
+        </p>
+      </div>
+
+      <!-- Items list (renderizado por JS) -->
+      <ul class="sidebar-items" id="sidebar-items" hidden></ul>
+
+      <!-- Totals -->
+      <div class="sidebar-totals" id="sidebar-totals" hidden>
+        <div class="totals-line">
+          <span class="totals-label">Subtotal</span>
+          <span class="totals-value" id="total-subtotal">$0</span>
+        </div>
+        <div class="totals-line">
+          <span class="totals-label">Servicio 8%</span>
+          <span class="totals-value" id="total-service">$0</span>
+        </div>
+        <div class="totals-line totals-line--final">
+          <span class="totals-label-final">Total</span>
+          <span class="totals-value-final" id="total-final">$0</span>
+        </div>
+      </div>
+
+      <!-- Pagar -->
+      <button class="btn-pagar-sidebar" id="btn-pagar" type="button" disabled>
+        Pagar →
+      </button>
+
+      <p class="sidebar-note">
+        Pago contra entrega o al recoger.<br>
+        Tu ticket queda como prueba de membresía.
+      </p>
+    </aside>
+
+  </main>
+
+  <!-- ===== TICKET MODAL ===== -->
+  <div class="ticket-modal" id="ticket-modal" role="dialog" aria-modal="true" aria-labelledby="ticket-paper">
+    <div class="ticket-backdrop" aria-hidden="true"></div>
+    <div class="ticket-paper" id="ticket-paper">
+      <!-- Contenido generado por ordering.js al hacer click en Pagar -->
+    </div>
+    <div class="ticket-actions">
+      <button class="btn-ticket-primary" id="btn-ticket-print" type="button">Imprimir</button>
+      <button class="btn-ticket-secondary" id="btn-ticket-new" type="button">Nueva orden</button>
+      <button class="btn-ticket-secondary" id="btn-ticket-close" type="button">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/ordering.js"></script>
+</body>
+
+</html>
